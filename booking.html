@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Park - Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            background-color: #333;
+            overflow: hidden;
+            color: white;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            padding: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        form {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            max-width: 500px;
+            margin: 1rem auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 0.75rem;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ticket Booking</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="booking.html">Ticket Booking</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+            <label for="tickets">Number of Tickets:</label>
+            <input type="number" id="tickets" name="tickets"><br>
+            <label for="lunch">Lunch Menu:</label>
+            <select id="lunch" name="lunch">
+                <option value="veg">Vegetarian</option>
+                <option value="nonveg">Non-Vegetarian</option>
+            </select><br>
+            <input type="submit" value="Book Tickets">
+        </form>
+    </main>
+</body>
+</html>
