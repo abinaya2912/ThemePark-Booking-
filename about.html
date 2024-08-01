@@ -3,53 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme Park - About Us</title>
+    <title>Adventure Island - Home</title>
     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            color: white;
+            background-color: #121412;
+            animation: fadeIn 2s ease-in;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
-            text-align: center;
+        .scrolling-message {
+            width: 100%;
+            background-color: #f2cc0c; /* Gold */
+            color: #111111;
+            padding: 0rem;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2.5rem;
+            animation: slideIn 1s ease-in-out; /* Slide in from the top */
+        }
+
+        .scrolling-message div {
+            white-space: nowrap;
+            animation: scroll 10s linear infinite;
+        }
+
+        nav {
+            margin-top: 2.5rem; /* Adjust to fit the scrolling message */
+            width: 100%;
+            background-color: #121212; /* Dark background for nav */
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 2rem; /* Reduced padding for lower nav bar */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+        }
+
+        nav img {
+            height: 50px; /* Adjust as needed */
+            margin-right: 1rem;
         }
 
         nav ul {
-            background-color: #333;
-            overflow: hidden;
-            color: white;
-            padding: 0;
-            text-align: center;
-            margin: 0;
             list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: flex-end; /* Align items to the right */
         }
 
         nav ul li {
-            display: inline;
-            padding: 20px;
+            margin: 0 1rem;
+            animation: slideIn 1s ease-in-out;
         }
 
         nav ul li a {
             text-decoration: none;
             color: white;
             cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
 
         main {
             padding: 1rem;
         }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+
+        .section {
+            flex: 1;
+            margin: 0 1rem;
+            background-color: #1f1f1f;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #f2cc0c;
+        }
+
+        .explore-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .card-container {
+            display: none;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(33.333% - 1rem);
+            text-align: center;
+            padding: 1rem;
+            color: black;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>About Us</h1>
-    </header>
+    <div class="scrolling-message">
+        <div>Enjoy a Splash at Adventure Island - Water Theme Park! Opens from 9.00 am to 5.30 pm</div>
+    </div>
     <nav>
+        <img src="https://adventureisland.co.uk/wp-content/uploads/2021/02/2021-Adventure-Island-logo-small-min.png" alt="Adventure Island Logo">
+        <h1>Adventure Island</h1>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -58,14 +168,55 @@
         </ul>
     </nav>
     <main>
-        <section>
-            <h2>Water Games</h2>
-            <p>We offer exciting water games like slides, wave pools, and lazy rivers.</p>
-        </section>
-        <section>
-            <h2>Non-Water Games</h2>
-            <p>Enjoy thrilling rides, roller coasters, and fun attractions for all ages.</p>
-        </section>
+        <div class="container">
+            <div class="section">
+                <h2>Water Games</h2>
+                <button class="explore-button" onclick="toggleCards('water-games')">Explore</button>
+                <div id="water-games" class="card-container">
+                    <div class="card">
+                        <img src="slide.jpg" alt="Slide">
+                        <h3>Slide</h3>
+                    </div>
+                    <div class="card">
+                        <img src="wave_pool.jpg" alt="Wave Pool">
+                        <h3>Wave Pool</h3>
+                    </div>
+                    <div class="card">
+                        <img src="lazy_river.jpg" alt="Lazy River">
+                        <h3>Lazy River</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Dry Games</h2>
+                <button class="explore-button" onclick="toggleCards('dry-games')">Explore</button>
+                <div id="dry-games" class="card-container">
+                    <div class="card">
+                        <img src="roller_coaster.jpg" alt="Roller Coaster">
+                        <h3>Roller Coaster</h3>
+                    </div>
+                    <div class="card">
+                        <img src="ferris_wheel.jpg" alt="Ferris Wheel">
+                        <h3>Ferris Wheel</h3>
+                    </div>
+                    <div class="card">
+                        <img src="bumper_cars.jpg" alt="Bumper Cars">
+                        <h3>Bumper Cars</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <script>
+        function toggleCards(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section.style.display === "none" || section.style.display === "") {
+                section.style.display = "flex";
+            } else {
+                section.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
