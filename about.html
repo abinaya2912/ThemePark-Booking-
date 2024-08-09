@@ -24,8 +24,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: white;
-            background-color: #121412;
+            color: black;
+            background-color: white; /* White background */
             animation: fadeIn 2s ease-in;
             overflow-x: hidden; /* Prevent horizontal scrolling */
         }
@@ -98,14 +98,13 @@
 
         .container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 2rem;
             margin: 2rem 0;
         }
 
         .section {
-            flex: 1;
-            margin: 0 1rem;
-            background-color: #1f1f1f;
+            background-color: white;
             padding: 1rem;
             border-radius: 8px;
             text-align: center;
@@ -117,7 +116,20 @@
             color: #f2cc0c;
         }
 
-        .explore-button {
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .image-container img {
+            max-width: 200px;
+            border-radius: 8px;
+        }
+
+        .view-more-button {
             background-color: #4CAF50;
             color: white;
             padding: 0.5rem 1rem;
@@ -127,29 +139,6 @@
             margin-top: 1rem;
             font-size: 1rem;
             font-weight: bold;
-        }
-
-        .card-container {
-            display: none;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        .card {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            width: calc(33.333% - 1rem);
-            text-align: center;
-            padding: 1rem;
-            color: black;
-        }
-
-        .card img {
-            max-width: 100%;
-            border-radius: 8px;
         }
     </style>
 </head>
@@ -171,52 +160,23 @@
         <div class="container">
             <div class="section">
                 <h2>Water Games</h2>
-                <button class="explore-button" onclick="toggleCards('water-games')">Explore</button>
-                <div id="water-games" class="card-container">
-                    <div class="card">
-                        <img src="slide.jpg" alt="Slide">
-                        <h3>Slide</h3>
-                    </div>
-                    <div class="card">
-                        <img src="wave_pool.jpg" alt="Wave Pool">
-                        <h3>Wave Pool</h3>
-                    </div>
-                    <div class="card">
-                        <img src="lazy_river.jpg" alt="Lazy River">
-                        <h3>Lazy River</h3>
-                    </div>
+                <div class="image-container">
+                    <img src="slide.jpg" alt="Slide">
+                    <img src="wave_pool.jpg" alt="Wave Pool">
+                    <img src="lazy_river.jpg" alt="Lazy River">
                 </div>
+                <button class="view-more-button">View More</button>
             </div>
             <div class="section">
                 <h2>Dry Games</h2>
-                <button class="explore-button" onclick="toggleCards('dry-games')">Explore</button>
-                <div id="dry-games" class="card-container">
-                    <div class="card">
-                        <img src="roller_coaster.jpg" alt="Roller Coaster">
-                        <h3>Roller Coaster</h3>
-                    </div>
-                    <div class="card">
-                        <img src="ferris_wheel.jpg" alt="Ferris Wheel">
-                        <h3>Ferris Wheel</h3>
-                    </div>
-                    <div class="card">
-                        <img src="bumper_cars.jpg" alt="Bumper Cars">
-                        <h3>Bumper Cars</h3>
-                    </div>
+                <div class="image-container">
+                    <img src="roller_coaster.jpg" alt="Roller Coaster">
+                    <img src="ferris_wheel.jpg" alt="Ferris Wheel">
+                    <img src="bumper_cars.jpg" alt="Bumper Cars">
                 </div>
+                <button class="view-more-button">View More</button>
             </div>
         </div>
     </main>
-
-    <script>
-        function toggleCards(sectionId) {
-            var section = document.getElementById(sectionId);
-            if (section.style.display === "none" || section.style.display === "") {
-                section.style.display = "flex";
-            } else {
-                section.style.display = "none";
-            }
-        }
-    </script>
 </body>
 </html>
